@@ -21,7 +21,7 @@
 <style>
 :root{
   --ink:#1b1b1f; --dim:#6b6b76; --line:#dcdce4; --bg:#fbfbfd; --card:#fff;
-  --accent:#1f5f4f; --lotus:#5F9E36; --accent-soft:#e6f2ee;
+  --accent:#1f5f4f; --lian:#5F9E36; --lian-ink:#4a7c28; --accent-soft:#e6f2ee;
 }
 *{box-sizing:border-box}
 body{
@@ -34,9 +34,13 @@ body{
 .back:hover{color:var(--accent)}
 h1{font-size:28px; margin:20px 0 4px}
 .meta{color:var(--dim); font-size:14px; margin:0 0 28px}
-h2{font-size:16px; margin:32px 0 10px; color:var(--lotus)}
-h2::before{content:""; display:inline-block; width:14px; height:2px;
-  background:var(--lotus); vertical-align:middle; margin-right:8px}
+h2{font-size:16px; margin:32px 0 10px; color:var(--lian-ink); font-weight:600;
+  position:relative; padding-left:16px}
+/* ★ 方框不是橫槓(Giant 2026-09-13)—— 跟官網 `web/index.html` 的
+   `h2::before` 逐個屬性一樣。★ 兩邊長不一樣的話,使用者會以為
+   點到別的網站。 */
+h2::before{content:""; position:absolute; left:0; top:.62em;
+  width:8px; height:8px; border-radius:2px; background:var(--lian)}
 p{margin:0 0 12px}
 b{font-weight:600}
 a{color:var(--accent)}
