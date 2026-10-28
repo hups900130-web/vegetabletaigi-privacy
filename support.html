@@ -2,27 +2,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>支援 · 青菜台語</title>
-<meta name="description" content="青菜台語的支援頁:怎麼安裝、怎麼啟用、打不出來的詞怎麼回報。">
-<link rel="icon" href="./favicon.png">
+<meta name="description" content="青菜台語的支援頁:怎麼開始用、打不出某個詞怎麼辦、怎麼回報、怎麼聯絡我們。">
+<link rel="icon" href="https://vegetabletaigi.com/favicon.png">
 
-<!--
-  兩家商店上架都要一個**公開網址**的隱私權政策,markdown 檔不算。
 
-  ## ⚠ 這一版改掉了草稿裡一句不再正確的話
-
-  草稿寫「不蒐集任何資料」。**回報表單出現之後那句就不對了** ——
-  表單會收到使用者填的注音與詞。
-
-  分開講:**輸入法**不蒐集任何東西(那句仍然成立、而且是重點);
-  **回報表單**是網站上的另一件事,使用者自己按、自己填、自己送。
-  混在一起講的話,不管往哪邊寫都會有一半是假的。
--->
 
 <style>
 :root{
   --ink:#1b1b1f; --dim:#6b6b76; --line:#dcdce4; --bg:#fbfbfd; --card:#fff;
-  --accent:#1f5f4f; --lian:#5F9E36; --lian-ink:#4a7c28; --accent-soft:#e6f2ee;
-}
+  --accent:#5F9E36; --accent-soft:#E4ECDF;
+  --lian:#5F9E36;
+  --lian-ink:#375C1F;
+  --lian-soft:#E4ECDF;}
 *{box-sizing:border-box}
 body{
   margin:0; background:var(--bg); color:var(--ink);
@@ -34,13 +25,10 @@ body{
 .back:hover{color:var(--accent)}
 h1{font-size:28px; margin:20px 0 4px}
 .meta{color:var(--dim); font-size:14px; margin:0 0 28px}
-h2{font-size:16px; margin:32px 0 10px; color:var(--lian-ink); font-weight:600;
-  position:relative; padding-left:16px}
-/* ★ 方框不是橫槓(Giant 2026-09-13)—— 跟官網 `web/index.html` 的
-   `h2::before` 逐個屬性一樣。★ 兩邊長不一樣的話,使用者會以為
-   點到別的網站。 */
-h2::before{content:""; position:absolute; left:0; top:.62em;
-  width:8px; height:8px; border-radius:2px; background:var(--lian)}
+h2{font-size:16px; margin:32px 0 10px}
+h2::before{content:""; display:inline-block; width:14px; height:2px;
+  background:var(--accent); vertical-align:middle; margin-right:8px}
+h3{font-size:15px; margin:20px 0 6px; color:var(--accent)}
 p{margin:0 0 12px}
 b{font-weight:600}
 a{color:var(--accent)}
@@ -48,91 +36,303 @@ a{color:var(--accent)}
   background:var(--accent-soft); border:1px solid var(--accent);
   border-radius:10px; padding:16px 20px; font-size:17px; margin:0 0 8px;
 }
-ul{margin:8px 0; padding-left:22px}
+ul,ol{margin:8px 0; padding-left:22px}
 li{margin:4px 0}
 table{width:100%; border-collapse:collapse; font-size:15px; margin:8px 0}
 th,td{text-align:left; padding:8px 10px 8px 0; border-bottom:1px solid var(--line); vertical-align:top}
 th{color:var(--dim); font-weight:500; font-size:12px; letter-spacing:.08em}
+kbd{
+  font-family:inherit; font-size:13px; background:var(--card);
+  border:1px solid var(--line); border-bottom-width:2px; border-radius:5px;
+  padding:1px 6px; white-space:nowrap;
+}
 hr{border:0; border-top:1px solid var(--line); margin:44px 0}
 .en{color:var(--dim)}
-.en h1,.en h2,.en b{color:var(--ink)}
+.en h1,.en h2,.en h3,.en b{color:var(--ink)}
+.en h3{color:var(--accent)}
 footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line);
   font-size:13px; color:var(--dim)}
+
 </style>
+
+
+
+<style>
+.topbar{position:sticky; top:0; z-index:9; background:var(--bg,#fbfbfd); border-bottom:1px solid var(--line,#dcdce4)}
+.topbar .in{max-width:700px; margin:0 auto; padding:0 16px; display:flex; gap:20px; align-items:center; height:52px;
+  overflow-x:auto; scrollbar-width:none}
+.topbar .in::-webkit-scrollbar{display:none}
+.topbar a{color:var(--dim,#6b6b76); text-decoration:none; font-size:14px; white-space:nowrap}
+.topbar a:hover{color:var(--lian-ink,#375C1F)}
+.topbar .brand{font-weight:700; color:var(--lian-ink,#375C1F); display:inline-flex; align-items:center; gap:7px; margin-right:4px}
+.topbar .brand img{width:16px; height:16px; image-rendering:pixelated; flex:none}
+</style>
+<nav class="topbar" aria-label="網站導覽"><div class="in">
+  <a class="brand" href="https://vegetabletaigi.com/" title="回首頁"><img src="https://vegetabletaigi.com/favicon.png" alt="" width="16" height="16">青菜台語</a>
+  <a href="https://vegetabletaigi.com/#about">這是什麼</a>
+  <a href="https://vegetabletaigi.com/#why">撿起台語</a>
+  <a href="https://vegetabletaigi.com/#help">怎麼打</a>
+  <a href="https://vegetabletaigi.com/#setup">安裝說明</a>
+  <a href="https://vegetabletaigi.com/support.html">支援</a>
+</div></nav>
 
 <div class="wrap">
 
-<a class="back" href="https://vegetabletaigi.com/">← 青菜台語</a>
 <h1>支援</h1>
-<p class="meta">青菜台語 · 最後更新 2026-09-13</p>
+<p class="meta">青菜台語 · 最後更新 2026-10-27</p>
 
-<p class="lede"><b>打不出來的詞，請用下面的回報表單告訴我們。</b>
-其餘常見的狀況都在這一頁。</p>
+<p class="lede"><b>打不出某個詞,先看下面那幾條;還是不行就按回報 —— 每一筆我們都會看。</b></p>
 
-<h2>怎麼開始用(iPhone)</h2>
-<p>
-  裝好之後還要在系統設定裡打開，這是 iOS 對所有第三方鍵盤的規矩：
-</p>
+<h2>怎麼開始用</h2>
+
+<h3>iPhone · iPad</h3>
 <ol>
-  <li>設定 → 一般 → 鍵盤 → 鍵盤 → <b>新增鍵盤</b></li>
-  <li>選「<b>青菜台語</b>」</li>
-  <li>點進「青菜台語」，把裡面唯一那個開關打開<br>
-      <span class="dim">(各版本叫法不同：完整取用／全權取用／完全取用)</span></li>
-  <li>在任何輸入框<b>長按地球鍵</b>，切到青菜台語</li>
+  <li>安裝之後打開「設定」→「一般」→「鍵盤」→「鍵盤」</li>
+  <li>「加入新的鍵盤…」→ 選<b>青菜台語</b></li>
+  <li>回到清單,點一下青菜台語,打開<b>「允許完整取用權限」</b>(理由見下一節)</li>
+  <li>在任何可以打字的地方,按左下角的 🌐 切到青菜台語</li>
 </ol>
-<p class="dim">
-  順手做一件事:回到那個鍵盤清單，按右上角<b>「編輯」</b>，
-  把「青菜台語」<b>拖到系統注音的上面或下面</b>。
-  兩個排在一起之後，<b>短按</b>地球鍵就在它們之間來回 ——
-  不用每次長按挑。
+
+<h3>Android</h3>
+<ol>
+  <li>「設定」→「系統」→「語言與輸入設定」→「螢幕鍵盤」→「管理鍵盤」</li>
+  <li>打開<b>青菜台語</b></li>
+  <li>開始打字時,按鍵盤右下角的切換鍵選青菜台語</li>
+</ol>
+
+<h3>macOS</h3>
+<ol>
+  <li>系統設定 → 鍵盤 →「輸入來源」右邊按「編輯…」</li>
+  <li><b>左欄選「繁體中文」</b>→ 勾「青菜台語」</li>
+</ol>
+<p>
+  ⚠ <b>找不到多半是找錯分類</b>:它跟系統的注音一樣掛在<b>繁體中文</b>底下,
+  不是掛在「台語」底下。
+</p>
+<p>
+  <b>裝好了卻切不過去?</b> 登出再登入一次(或重新開機),不用重裝。
+  症狀是:輸入來源清單裡看得到「青菜台語」,切過去打出來卻是一般注音 ——
+  macOS 把輸入法的身分記在快取裡,而它在新裝或改版之後不一定會跟著更新,
+  登出會讓系統重新讀一次。登出之後還是一樣,那就是真的壞了,請回報。
 </p>
 
-<h2>為什麼要「完整取用」</h2>
+<h3>Windows</h3>
+<ol>
+  <li>執行安裝程式(需要系統管理員權限 —— 輸入法要註冊給整個系統用)</li>
+  <li>按 <kbd>Win</kbd> + <kbd>空白鍵</kbd> 切到青菜台語</li>
+  
+  <li>有問題須<b>重新登入或重開機</b>再使用</li>
+</ol>
 <p>
-  兩件事需要它，而<b>兩件都在你的裝置上</b>:
+  ⚠ <b>下載時 Windows 會擋一次。</b>瀏覽器可能說「不常下載」、
+  按下去之後系統會跳一個藍色的「Windows 已保護您的電腦」——
+  按<b>「其他資訊」→「仍要執行」</b>。
+  那是因為我們還沒有程式碼簽章憑證(一年要幾百美金),
+  <b>不是因為檔案有問題</b>;所有小專案的安裝程式都會遇到。
+</p>
+<p>
+  選字:<kbd>Ctrl</kbd>+<kbd>1</kbd>～<kbd>9</kbd> 挑第幾個,小鍵盤 1～9 也可以;
+  方向鍵移動,<kbd>PgUp</kbd> <kbd>PgDn</kbd> 翻頁。
+</p>
+<p>
+  ⚠ <b>數字鍵本身不能拿來選字</b>:大千布局裡 1～9 是 ㄅㄉˇˋㄓˊ˙ㄚㄞ,
+  佔走了就有九個注音打不出來。這些鍵也<b>只在組字中</b>才被接走 ——
+  沒在打字的時候 <kbd>Ctrl</kbd>+<kbd>1</kbd> 還是你原本 app 的快捷鍵。
+</p>
+<p>
+  ⚠ 有些從市集裝的程式(例如市集版的記事本)是在更嚴格的沙箱裡跑的。
+  如果某一個程式裡打不出字、別的程式又正常,那多半是這個原因,
+  <b>回報時請告訴我們是哪一個程式</b>。
+</p>
+
+<h2>iPhone 為什麼要「完整取用權限」</h2>
+<p>
+  因為<b>設定頁和鍵盤是兩個程式</b>。你在設定頁調的東西要傳得到鍵盤那邊,
+  以及回報功能要把打字狀態複製到剪貼簿 —— 這兩件事在 iOS 上都需要那個權限。
+</p>
+<p>
+  打開它的時候 iOS 會跳一段很嚇人的警告,那段話是<b>對所有自訂鍵盤說的</b>,
+  不是針對這一個。就這個輸入法而言:
 </p>
 <ul>
-  <li><b>設定要生效。</b> app 跟鍵盤是兩個分開的程式，沒有這個權限，
-      鍵盤讀不到你在 app 裡調的設定 —— 症狀是「調完回去打字什麼都沒變」。</li>
-  <li><b>回報要用剪貼簿。</b> 長按注音列會把目前的打字狀態複製起來，
-      讓你貼進回報表單。</li>
+  <li>它<b>完全沒有網路功能</b> —— 程式裡沒有任何連線的函式庫,所以就算想送也送不出去</li>
+  <li>你打的字<b>不記錄、不上傳、不分析</b></li>
+  
+  <li>存在你裝置上的資料<b>不會傳送出去</b></li>
 </ul>
+<p>細節見<a href="https://vegetabletaigi.com/privacy.html">隱私權政策</a>。</p>
+
+<h2>打不出某個詞</h2>
+<table>
+  <tr><th>先試這個</th><th>為什麼</th></tr>
+  <tr>
+    <td><b>一聲要按空白鍵</b></td>
+    <td>空白鍵就是第一聲。不按的話兩個音節會黏在一起,整串切不開 —— 這是最常見的一種「怎麼都打不到」</td>
+  </tr>
+  <tr>
+    <td>往後多按幾格</td>
+    <td>詞收進來了但排得比較後面。選過一次之後它就會往前排</td>
+  </tr>
+  <tr>
+    <td>設定裡把<b>字庫</b>那幾個開關打開</td>
+    <td>有些詞表預設沒開</td>
+  </tr>
+  <tr>
+    <td>加進<b>你自己的菜單</b></td>
+    <td>人名、綽號、只有你會打的詞 —— 設定頁的「菜單」可以自己加,不用等我們</td>
+  </tr>
+</table>
 <p>
-  輸入法<b>沒有任何網路功能</b>，你打的字不會離開裝置。
-  細節在 <a href="./">隱私權政策</a>。
+  上面都試過還是打不到,<b>那就是我們漏收了</b> —— 請回報,下面說怎麼做。
 </p>
 
-<h2>打不出來的詞</h2>
+<h2>怎麼回報</h2>
+<p>回報會把<b>當下的打字狀態</b>複製起來,你再貼進表單就好 —— 不用自己打一次:</p>
+<table>
+  <tr><th>平台</th><th>怎麼做</th></tr>
+  <tr><td>Windows</td><td>打到打不出來的那一刻,按 <kbd>Ctrl</kbd> + <kbd>F12</kbd></td></tr>
+  
+  <tr><td>macOS</td><td>輸入法選單的「回報問題…」</td></tr>
+  
+  <tr><td>Android · iPhone</td><td>符號層(<kbd>?123</kbd>)的<b>青菜那顆鍵</b></td></tr>
+</table>
 <p>
-  這是我們最想知道的事。回報的時候<b>不用自己抄注音</b> ——
-  長按注音列會把打字狀態複製好，貼上去就行。
+  然後打開<a id="form-link" href="https://vegetabletaigi.com/">回報表單</a>貼上、送出。
+  表單<b>不問名字、不問 email</b>,我們收到的就只有你貼進去的那幾格。
 </p>
 <p>
-  <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfU2iqgoQDiOr1AQ7vjLl1ohVZd86Fyk0R5PkvM2nKxXd0T4w/viewform">打開回報表單</a>
+  ⚠ 如果不是「打不出某個詞」而是別的問題(當掉、畫面怪怪的、某個程式裡打不了字),
+  直接寄信給我們,<b>講清楚是哪一個平台、哪一個程式</b>。
 </p>
 
-<h2>常見狀況</h2>
-<h3>切不過去</h3>
+<h2>聯絡我們</h2>
+<p><a href="mailto:vegetabletaigi@gmail.com">vegetabletaigi@gmail.com</a></p>
+<p class="meta">一個人做的專案,回信可能慢幾天,但每一封都會看。</p>
+
+<hr>
+
+<div class="en">
+<h1>Support</h1>
+<p class="meta">Vegetable Taigi · Last updated 2026-10-27</p>
+
+<p class="lede"><b>If a word won't come up, try the list below; if it still won't, send a report — we read every one.</b></p>
+
+<h2>Getting started</h2>
+
+<h3>iPhone · iPad</h3>
+<ol>
+  <li>Settings → General → Keyboard → Keyboards</li>
+  <li>Add New Keyboard… → <b>青菜台語</b> (Vegetable Taigi)</li>
+  <li>Tap it in the list and turn on <b>Allow Full Access</b> (why: see below)</li>
+  <li>Tap 🌐 in any text field to switch to it</li>
+</ol>
+
+<h3>Android</h3>
+<ol>
+  <li>Settings → System → Languages &amp; input → On-screen keyboard → Manage keyboards</li>
+  <li>Turn on <b>青菜台語</b> (Vegetable Taigi)</li>
+  <li>Use the keyboard-switch key at the bottom right to select it</li>
+</ol>
+
+
+<h3>macOS</h3>
+<ol>
+  <li>System Settings → Keyboard → click “Edit…” next to “Input Sources”</li>
+  <li><b>Choose “Chinese, Traditional” in the left column</b> → tick <b>青菜台語</b> (Vegetable Taigi)</li>
+</ol>
 <p>
-  長按地球鍵(不是短按)會跳出鍵盤清單，在那裡挑「青菜台語」。
-  清單裡沒有的話，表示第 1、2 步還沒完成。
+  Can't find it? It is almost always the wrong category: like the system Zhuyin, it is listed
+  under <b>Chinese, Traditional</b>, not under “Taiwanese”.
 </p>
-<h3>調了設定卻沒變</h3>
 <p>
-  多半是「完整取用」沒開。開了之後，<b>切到別的鍵盤再切回來</b>就生效。
-</p>
-<h3>聲調打錯</h3>
-<p>
-  沒關係，這個輸入法本來就不要求你調對 —— 它會把可能的寫法都找出來讓你挑。
-  這是刻意的設計，不是漏洞。
+  <b>Installed but can't switch to it?</b> Sign out and back in (or restart) — no need to reinstall.
+  The symptom: 青菜台語 shows up in the input source list, but typing with it gives ordinary Zhuyin.
+  macOS caches each input method's identity and does not always refresh it after an install or
+  update; signing out makes it read them again. If it still happens after signing out, it really
+  is broken — please report it.
 </p>
 
-<h2>聯絡</h2>
+<h3>Windows</h3>
+<ol>
+  <li>Run the installer (administrator rights required — an IME is registered system-wide)</li>
+  <li>Press <kbd>Win</kbd> + <kbd>Space</kbd> to switch to it</li>
+  <li>If it doesn't work, <b>sign out and back in</b>, or restart, then try again</li>
+</ol>
 <p>
-  <a href="mailto:vegetabletaigi@gmail.com">vegetabletaigi@gmail.com</a>
+  Note: some Store-distributed apps run in a stricter sandbox. If typing fails in one
+  app but works everywhere else, that is usually why — <b>please tell us which app</b>.
 </p>
-<p class="dim">
-  官方網站 vegetabletaigi.com 還在準備中，開放之前這一頁就是支援入口。
+
+<h2>Why iPhone needs Full Access</h2>
+<p>
+  The settings screen and the keyboard are <b>two separate processes</b>. Full Access is what
+  lets your settings reach the keyboard, and what lets the report feature copy the current
+  typing state to the clipboard.
 </p>
+<p>
+  iOS shows a strongly worded warning when you enable it. That warning is written for
+  <b>all custom keyboards</b>, not this one. For this keyboard specifically:
+</p>
+<ul>
+  <li>It has <b>no networking code at all</b> — it could not send anything anywhere</li>
+  <li>What you type is <b>never logged, uploaded, or analysed</b></li>
+  <li>Anything stored on your device <b>is never sent anywhere</b></li>
+</ul>
+<p>See the <a href="https://vegetabletaigi.com/privacy.html">Privacy Policy</a> for details.</p>
+
+<h2>A word won't come up</h2>
+<table>
+  <tr><th>Try this first</th><th>Why</th></tr>
+  <tr>
+    <td><b>Press space for the first tone</b></td>
+    <td>Space <i>is</i> tone 1. Without it, two syllables run together and the whole string
+        cannot be split — this is the most common cause of "it never comes up"</td>
+  </tr>
+  <tr><td>Page further down the candidate list</td>
+      <td>The word is there, just ranked lower. Pick it once and it moves up</td></tr>
+  <tr><td>Turn on the extra word lists in Settings</td>
+      <td>Some lists are off by default</td></tr>
+  <tr><td>Add it to <b>your own menu</b></td>
+      <td>Names, nicknames, words only you type — add them yourself in Settings → Menus,
+          no need to wait for us</td></tr>
+</table>
+<p>If none of that works, <b>we are missing the word</b>. Please report it.</p>
+
+<h2>Sending a report</h2>
+<p>Reporting copies the <b>current typing state</b> so you can paste it into the form:</p>
+<table>
+  <tr><th>Platform</th><th>How</th></tr>
+  <tr><td>Windows</td><td>Press <kbd>Ctrl</kbd> + <kbd>F12</kbd> at the moment it fails</td></tr>
+  
+  <tr><td>macOS</td><td>Choose <b>回報問題…</b> (Report a problem) in the input menu</td></tr>
+  <tr><td>Android · iPhone</td><td>The <b>青菜 key</b> on the symbol layer (<kbd>?123</kbd>)</td></tr>
+</table>
+<p>
+  Then open the <a href="https://vegetabletaigi.com/" id="form-link-en">report form</a>, paste, and submit. The form
+  <b>does not ask for your name or email</b>.
+</p>
+<p>
+  For anything other than a missing word (a crash, a display problem, an app where typing
+  does not work), email us instead and say <b>which platform and which app</b>.
+</p>
+
+<h2>Contact</h2>
+<p><a href="mailto:vegetabletaigi@gmail.com">vegetabletaigi@gmail.com</a></p>
+<p class="meta">This is a one-person project; replies may take a few days, but every message is read.</p>
+</div>
+
+<footer>
+  <a class="back" href="https://vegetabletaigi.com/">← 回青菜台語</a>
+</footer>
+
+<script>
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfU2iqgoQDiOr1AQ7vjLl1ohVZd86Fyk0R5PkvM2nKxXd0T4w/viewform";
+for (const [id, fallback] of [["form-link", "回報表單還沒開放"], ["form-link-en", "the report form (not open yet)"]]) {
+  const el = document.getElementById(id);
+  if (!el) continue;
+  if (FORM_URL) { el.href = FORM_URL; el.rel = "noopener"; el.target = "_blank"; }
+  else { el.replaceWith(document.createTextNode(fallback)); }
+}
+</script>
 
 </div>

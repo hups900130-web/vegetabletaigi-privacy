@@ -1,13 +1,13 @@
-# 青菜台語 · 隱私權政策
+# 青菜台語 · 隱私權政策與支援
 
-這個 repo **只放一頁**:[青菜台語](https://vegetabletaigi.com/)(Chhìn-chhài Taigi)
-輸入法的隱私權政策,中英雙語。
+[青菜台語](https://vegetabletaigi.com/)(Vegetable Taigi)輸入法的隱私權政策與支援頁,中英雙語。
 
-線上版:https://hups900130-web.github.io/vegetabletaigi-privacy/
+- 隱私權政策:https://hups900130-web.github.io/vegetabletaigi-privacy/
+- 支援:https://hups900130-web.github.io/vegetabletaigi-privacy/support.html
 
-## 為什麼單獨一個 repo
+App Store 與 Google Play 都要求這兩頁是公開可讀的網址,而輸入法的原始碼庫是私有的,
+所以單獨放在這裡。
 
-App Store 與 Google Play 都要求隱私權政策是**公開可讀的網址**,
-而輸入法的原始碼庫是私有的。這裡只放那一頁,其餘什麼都沒有。
-
-政策本文與官網上的那一份是同一份(`web/privacy.html`)。
+⚠ **這裡的檔是產生的,不要在這裡手改。** 正本是官網那兩頁
+(https://vegetabletaigi.com/privacy.html · https://vegetabletaigi.com/support.html),
+每次部署官網時由私有 repo 的 `tools/store_pages.py` 照抄過來。

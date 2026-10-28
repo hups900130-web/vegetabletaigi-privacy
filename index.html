@@ -3,26 +3,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>隱私權政策 · 青菜台語</title>
 <meta name="description" content="青菜台語的隱私權政策:輸入法不連網路、不蒐集任何資料。">
-<link rel="icon" href="./favicon.png">
+<link rel="icon" href="https://vegetabletaigi.com/favicon.png">
 
-<!--
-  兩家商店上架都要一個**公開網址**的隱私權政策,markdown 檔不算。
 
-  ## ⚠ 這一版改掉了草稿裡一句不再正確的話
-
-  草稿寫「不蒐集任何資料」。**回報表單出現之後那句就不對了** ——
-  表單會收到使用者填的注音與詞。
-
-  分開講:**輸入法**不蒐集任何東西(那句仍然成立、而且是重點);
-  **回報表單**是網站上的另一件事,使用者自己按、自己填、自己送。
-  混在一起講的話,不管往哪邊寫都會有一半是假的。
--->
 
 <style>
 :root{
   --ink:#1b1b1f; --dim:#6b6b76; --line:#dcdce4; --bg:#fbfbfd; --card:#fff;
-  --accent:#1f5f4f; --lian:#5F9E36; --lian-ink:#4a7c28; --accent-soft:#e6f2ee;
-}
+  --accent:#5F9E36; --accent-soft:#E4ECDF;
+  --lian:#5F9E36;
+  --lian-ink:#375C1F;
+  --lian-soft:#E4ECDF;}
 *{box-sizing:border-box}
 body{
   margin:0; background:var(--bg); color:var(--ink);
@@ -34,13 +25,9 @@ body{
 .back:hover{color:var(--accent)}
 h1{font-size:28px; margin:20px 0 4px}
 .meta{color:var(--dim); font-size:14px; margin:0 0 28px}
-h2{font-size:16px; margin:32px 0 10px; color:var(--lian-ink); font-weight:600;
-  position:relative; padding-left:16px}
-/* ★ 方框不是橫槓(Giant 2026-09-13)—— 跟官網 `web/index.html` 的
-   `h2::before` 逐個屬性一樣。★ 兩邊長不一樣的話,使用者會以為
-   點到別的網站。 */
-h2::before{content:""; position:absolute; left:0; top:.62em;
-  width:8px; height:8px; border-radius:2px; background:var(--lian)}
+h2{font-size:16px; margin:32px 0 10px}
+h2::before{content:""; display:inline-block; width:14px; height:2px;
+  background:var(--accent); vertical-align:middle; margin-right:8px}
 p{margin:0 0 12px}
 b{font-weight:600}
 a{color:var(--accent)}
@@ -58,13 +45,34 @@ hr{border:0; border-top:1px solid var(--line); margin:44px 0}
 .en h1,.en h2,.en b{color:var(--ink)}
 footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line);
   font-size:13px; color:var(--dim)}
+
 </style>
+
+
+
+<style>
+.topbar{position:sticky; top:0; z-index:9; background:var(--bg,#fbfbfd); border-bottom:1px solid var(--line,#dcdce4)}
+.topbar .in{max-width:700px; margin:0 auto; padding:0 16px; display:flex; gap:20px; align-items:center; height:52px;
+  overflow-x:auto; scrollbar-width:none}
+.topbar .in::-webkit-scrollbar{display:none}
+.topbar a{color:var(--dim,#6b6b76); text-decoration:none; font-size:14px; white-space:nowrap}
+.topbar a:hover{color:var(--lian-ink,#375C1F)}
+.topbar .brand{font-weight:700; color:var(--lian-ink,#375C1F); display:inline-flex; align-items:center; gap:7px; margin-right:4px}
+.topbar .brand img{width:16px; height:16px; image-rendering:pixelated; flex:none}
+</style>
+<nav class="topbar" aria-label="網站導覽"><div class="in">
+  <a class="brand" href="https://vegetabletaigi.com/" title="回首頁"><img src="https://vegetabletaigi.com/favicon.png" alt="" width="16" height="16">青菜台語</a>
+  <a href="https://vegetabletaigi.com/#about">這是什麼</a>
+  <a href="https://vegetabletaigi.com/#why">撿起台語</a>
+  <a href="https://vegetabletaigi.com/#help">怎麼打</a>
+  <a href="https://vegetabletaigi.com/#setup">安裝說明</a>
+  <a href="https://vegetabletaigi.com/support.html">支援</a>
+</div></nav>
 
 <div class="wrap">
 
-<a class="back" href="https://vegetabletaigi.com/">← 青菜台語</a>
 <h1>隱私權政策</h1>
-<p class="meta">青菜台語 · 最後更新 2026-10-15</p>
+<p class="meta">青菜台語 · 最後更新 2026-10-27</p>
 
 <p class="lede"><b>輸入法不連網路，不蒐集任何資料，也沒有地方可以把資料送出去。</b></p>
 
@@ -87,19 +95,11 @@ footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line);
   <li><b>不分析</b>、不做統計、不建立使用者輪廓</li>
 </ul>
 
-<h2>唯一存在你裝置上的東西</h2>
-<p>為了讓常用的詞排前面，程式會在<b>你的裝置本機</b>記住你選過哪些詞。</p>
-<ul>
-  <li>格式是<b>純文字檔</b>，你隨時可以打開來看裡面有什麼</li>
-  <li>內容只有三欄：你按的注音、你選的漢字、選過幾次</li>
-  <li><b>整份刪掉不會影響使用</b>，只是排序回到預設</li>
-  <li>這個檔<b>只存在你的裝置上</b>，不會離開</li>
-</ul>
-<p>移除應用程式時，這個檔案會跟著刪除。</p>
 
-<!-- ★ 這一節是 2026-09-02 加的。
-     草稿寫「不蒐集任何資料」,而回報表單出現之後那句就不對了。
-     不加的話,隱私政策本身在說謊 —— 而那比沒有隱私政策更糟。 -->
+<h2>存在你裝置上的東西</h2>
+<p>輸入法存在你裝置上的資料，<b>只留在你的裝置上，不會傳送出去</b>。</p>
+
+
 <h2>回報表單(這一項會蒐集東西)</h2>
 <p>
   網站上有一個<b>回報打不出來的詞</b>的表單。它跟輸入法是<b>兩件分開的事</b> ——
@@ -121,11 +121,10 @@ footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line);
   不會公開、不會分享、不會拿去做別的事。
 </p>
 
-<!-- ★ 這一節是 2026-10-07 加的。尋字頁的九宮格會把查的詞放進網址、交給瀏覽器開外部網站。
-     ⚠ 官網 vegetabletaigi.com/privacy.html 是同一份內容,兩份要一起改。 -->
+
 <h2>尋字頁的傳送門(你點了才會連到外部網站)</h2>
 <p>
-  尋字頁下方的傳送門會用你裝置上的<b>瀏覽器</b>打開外部網站，網址裡帶著你查的那個詞。連到哪些網站，見<a href="https://vegetabletaigi.com/notice#tshue">資料出處與授權</a>。
+  尋字頁下方的傳送門會用你裝置上的<b>瀏覽器</b>打開外部網站，網址裡帶著你查的那個詞。連到哪些網站，見<a href="https://vegetabletaigi.com/notice.html#tshue">資料出處與授權</a>。
 </p>
 <p>
   這一步是<b>你自己點下去</b>、在瀏覽器裡發生的；輸入法本身沒有網路權限，不會自己連線，
@@ -162,7 +161,7 @@ footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line);
 
 <div class="en">
 <h1>Privacy Policy</h1>
-<p class="meta">Chhìn-chhài Taigi · Last updated 2026-10-15</p>
+<p class="meta">Vegetable Taigi · Last updated 2026-10-27</p>
 
 <p class="lede"><b>The keyboard has no network access, collects nothing, and has nowhere to send anything.</b></p>
 
@@ -176,13 +175,8 @@ footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line);
   and <b>not analyse</b> anything you type.
 </p>
 
-<h2>The one thing stored on your device</h2>
-<p>
-  To rank words you use often, the app remembers your past choices <b>locally</b>.
-  It is a plain text file with three columns (the keys you pressed, the word you picked,
-  how many times). Deleting it only resets ranking. It never leaves your device,
-  and it is removed when you uninstall the app.
-</p>
+<h2>What stays on your device</h2>
+<p>Anything the keyboard stores on your device <b>stays there and is never sent anywhere</b>.</p>
 
 <h2>The feedback form (this one does collect something)</h2>
 <p>
@@ -201,7 +195,7 @@ footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line);
 <p>
   The portals on the lookup page open external websites in your
   <b>browser</b>, with the word you searched in the address.
-  The list of sites is on <a href="https://vegetabletaigi.com/notice#tshue">Sources and licences</a>.
+  The list of sites is on <a href="https://vegetabletaigi.com/notice.html#tshue">Sources and licences</a>.
 </p>
 <p>
   This happens <b>only when you tap a button</b>, inside your browser. The keyboard itself has
