@@ -10,4 +10,4 @@ App Store 與 Google Play 都要求這兩頁是公開可讀的網址,而輸入�
 
 ⚠ **這裡的檔是產生的,不要在這裡手改。** 正本是官網那兩頁
 (https://vegetabletaigi.com/privacy.html · https://vegetabletaigi.com/support.html),
-每次部署官網時由私有 repo 的 `tools/store_pages.py` 照抄過來。
+每次部署官網時自動同步過來。
