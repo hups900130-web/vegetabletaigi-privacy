@@ -59,12 +59,18 @@ footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line);
 .topbar a:hover{color:var(--lian-ink,#375C1F)}
 .topbar .brand{font-weight:700; color:var(--lian-ink,#375C1F); display:inline-flex; align-items:center; gap:7px; margin-right:4px}
 .topbar .brand img{width:16px; height:16px; image-rendering:pixelated; flex:none}
+.topbar .sw{display:inline-block; position:relative}
+.topbar .sw>span{transition:opacity .18s}
+.topbar .sw .tw{position:absolute; left:50%; top:0; transform:translateX(-50%); white-space:nowrap;
+  opacity:0; color:var(--lian-ink,#375C1F)}
+.topbar .sw:hover .zh,.topbar .sw:focus-visible .zh{opacity:0}
+.topbar .sw:hover .tw,.topbar .sw:focus-visible .tw{opacity:1}
 </style>
 <nav class="topbar" aria-label="網站導覽"><div class="in">
   <a class="brand" href="https://vegetabletaigi.com/" title="回首頁"><img src="https://vegetabletaigi.com/favicon.png" alt="" width="16" height="16">青菜台語</a>
-  <a href="https://vegetabletaigi.com/#about">這是什麼</a>
-  <a href="https://vegetabletaigi.com/#why">撿起台語</a>
-  <a href="https://vegetabletaigi.com/#help">怎麼打</a>
+  <a class="sw" href="https://vegetabletaigi.com/#about"><span class="zh">這是什麼</span><span class="tw" aria-hidden="true">青菜是啥</span></a>
+  <a class="sw" href="https://vegetabletaigi.com/#why"><span class="zh">撿起台語</span><span class="tw" aria-hidden="true">共台語抾轉來</span></a>
+  <a class="sw" href="https://vegetabletaigi.com/#help"><span class="zh">怎麼打</span><span class="tw" aria-hidden="true">按怎拍</span></a>
   <a href="https://vegetabletaigi.com/#setup">安裝說明</a>
   <a href="https://vegetabletaigi.com/support.html">支援</a>
 </div></nav>
